@@ -43,3 +43,33 @@ class Monster(models.Model):
 
     def __str__(self):
         return self.category + " - " + self.name
+    
+class Contract(models.Model):
+    CURRENCY_CHOICES=[
+        ("KRN","Korony"),
+        ("ORN","Oreny"),
+        ("FLO","Floreny"),
+    ]
+    STATE_CHOICES=[
+        ("OPN","Aktywne"),
+        ("TKN","Przyjęte"),
+        ("DON","Zakończone"),
+        ("CAN","Anulowane"),
+    ]
+    title=models.CharField(max_length=150)
+    description=models.TextField(blank=True)
+    realm=models.ForeignKey(Realm,on_delete=models.CASCADE)
+    town=models.ForeignKey(Town,on_delete=models.CASCADE)
+    monster=models.ForeignKey(Monster,on_delete=models.CASCADE)
+    currency=models.CharField(max_length=3,choices=CURRENCY_CHOICES,default="KRN")
+    reward=models.IntegerField(default=0)
+    state=models.CharField(max_length=3,choices=STATE_CHOICES,default="OPN")
+
+    time_created=models.DateTimeField(auto_now_add=True)
+
+
+    class Meta:
+        ordering=["-time_created"]
+    
+    def __str__(self):
+        return self.title +" - "+self.realm +" - "+self.town
