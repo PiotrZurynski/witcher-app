@@ -17,7 +17,7 @@ class Town(models.Model):
     class Meta:
         ordering=["realm", "name"]
     def __str__(self):
-        return self.name + " " + self.realm.name
+        return self.name
 
 class Monster(models.Model):
     CATEGORY_CHOICES=[
