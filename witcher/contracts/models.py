@@ -17,7 +17,7 @@ class Town(models.Model):
     class Meta:
         ordering=["realm", "name"]
     def __str__(self):
-        return self.name + " " + self.realm
+        return self.name + " " + self.realm.name
 
 class Monster(models.Model):
     CATEGORY_CHOICES=[
@@ -42,7 +42,7 @@ class Monster(models.Model):
         ordering=["category","name"]
 
     def __str__(self):
-        return self.category + " - " + self.name
+        return self.get_category_display() + " - " + self.name
     
 class Contract(models.Model):
     CURRENCY_CHOICES=[
@@ -72,4 +72,4 @@ class Contract(models.Model):
         ordering=["-time_created"]
     
     def __str__(self):
-        return self.title +" - "+self.realm +" - "+self.town
+        return self.title +" - "+self.realm.name +" - "+self.town.name
