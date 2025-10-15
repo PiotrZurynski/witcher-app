@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}Zlecenia Wiedźmińskie{% endblock %}
+    </title>
+</head>
+<body>
+    <nav>
+        <a href="{% url 'home' %}">Home</a>
+    </nav>
+    {% block content %}
+    {% endblock %}
+
+    <footer>
+        <p>Test</p>
+    </footer>
+</body>
+</html>
