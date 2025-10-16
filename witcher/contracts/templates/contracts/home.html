@@ -3,6 +3,10 @@
 {% block title %}
 Home Zlecenia
 {% endblock %}
+{% block page_css %}
+<link rel="stylesheet" href="{% static 'contracts/css/home.css' %}">
+{% endblock %}
+
 {% block content %}
     {% if user.is_authenticated %}
         <h1>Witaj {{name}} jestem wiedzmin Geralt</h1>
