@@ -26,8 +26,13 @@ a{
     font-family:'Witcher',serif;
     text-decoration: none;
     font-weight: 600;
-    font-size:2.2rem;
+    font-size:2.4rem;
 }
+a:link, a:visited{
+    color:#b8b8b7;
+
+}
+
 nav img{
     height:40px;
     margin-top:3px;
@@ -36,13 +41,16 @@ nav img{
 .taskbar ul{
     display:flex;
     justify-content:space-around;
-    width:600px;
+    width:700px;
     margin-left:-10px;
 }
-#task{
+#task,#in{
     color:#b8b8b7;
     
     
+}
+#task:hover{
+    color:crimson;
 }
 .inout{
     margin-left:auto;
@@ -58,6 +66,12 @@ nav img{
 }
 #in{
     font-size: 2rem;
+    color:#b8b8b7;
+
+
+}
+#in:hover{
+    color:crimson;
 }
 footer{
     display:flex;
