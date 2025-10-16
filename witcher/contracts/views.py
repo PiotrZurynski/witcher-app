@@ -6,6 +6,8 @@ from django.views.generic.edit import CreateView
 from .forms import ContractCreateForm
 from django.urls import reverse_lazy
 from django.contrib.auth import login, authenticate
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 def home(request):
     return render(request,"contracts/home.html")
@@ -27,11 +29,12 @@ def login_view(request):
             return HttpResponse("Złe dane")
     return render(request, "contracts/login.html", context)
 
-class ContractCreate(CreateView):
+class ContractCreate(LoginRequiredMixin,CreateView):
     model=Contract
     template_name='contracts/contract_create_form.html'
     form_class=ContractCreateForm
     success_url=reverse_lazy('home')
+    login_url=reverse_lazy('login')
 
 class ContractList(ListView):
     model=Contract
