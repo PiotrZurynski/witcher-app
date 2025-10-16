@@ -1,5 +1,32 @@
 body{
     background-color: #1b1b2a;
-    font-family: Verdana;
+    font-family: Helvetica;
+    font-size:22px;
+    margin: 0 auto;
+}
+nav{
+    background-color: black;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    
+}
+a{
+    text-decoration: none;
+}
+nav img{
+    height:40px;
+    margin-top:10px;
+    margin-left:10px;
+}
+.taskbar ul{
+    display:flex;
+    justify-content: space-around;
+    width:500px;
+}
+#task{
+    color:seashell;
     font-size:20px;
+    font-family: Helvetica;
+    opacity:0.9;
 }
