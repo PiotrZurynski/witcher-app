@@ -1,3 +1,9 @@
+@font-face{
+    font-family:'Witcher';
+    src: url('./fonts/MasonSerifRegular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 body{
     background-color: #1b1b2a;
     font-family: Helvetica;
@@ -17,24 +23,26 @@ nav{
     
 }
 a{
+    font-family:'Witcher',serif;
     text-decoration: none;
     font-weight: 600;
+    font-size:2.2rem;
 }
 nav img{
     height:40px;
-    
+    margin-top:3px;
     margin-left:20px;
 }
 .taskbar ul{
     display:flex;
     justify-content:space-around;
-    width:400px;
+    width:600px;
+    margin-left:-10px;
 }
 #task{
-    color:seashell;
-    font-size:20px;
-    font-family: Helvetica;
-    opacity:0.9;
+    color:#b8b8b7;
+    
+    
 }
 .inout{
     margin-left:auto;
@@ -49,7 +57,7 @@ nav img{
     margin-left:30px;
 }
 #in{
-    font-size: 20px;
+    font-size: 2rem;
 }
 footer{
     display:flex;
