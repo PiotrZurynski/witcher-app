@@ -5,30 +5,39 @@ from django.views.generic import ListView
 from django.views.generic.edit import CreateView
 from .forms import ContractCreateForm
 from django.urls import reverse_lazy
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserCreationForm
 # Create your views here.
 def home(request):
-    return render(request,"contracts/home.html")
+    context={"name": request.user}
+    return render(request,"contracts/home.html",context)
 
 def login_view(request):
     context={
         "login_view":"active"
     }
     if request.method == "POST":
-        login=request.POST("login")
-        password=request.POST("password")
+        username=request.POST.get("username")
+        password=request.POST.get("password")
 
-        user=authenticate(request,login=login,password=password)
+        user=authenticate(request,username=username,password=password)
 
         if user is not None:
             login(request, user)
-            return redirect("home.html")
+            return redirect("home")
         else:
             return HttpResponse("Złe dane")
-    return render(request, "contracts/login.html", context)
+    return render(request, "registration/login.html", context)
+def logout_view(request):
+    logout(request)
+    return redirect("home")
 
+class SignUp(CreateView):
+    form_class=UserCreationForm
+    success_url=reverse_lazy("login")
+    template_name="registration/signup.html"
 class ContractCreate(LoginRequiredMixin,CreateView):
     model=Contract
     template_name='contracts/contract_create_form.html'
