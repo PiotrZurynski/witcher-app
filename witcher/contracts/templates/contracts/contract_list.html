@@ -1,0 +1,30 @@
+{% extends "./base.html" %}
+
+{% block content %}
+<h1>Lista Zleceń</h1>
+<table>
+    <tr>
+        <th>Tytuł</th>
+        <th>Kraina</th>
+        <th>Miejscowość</th>
+        <th>Potwór</th>
+        <th>Waluta</th>
+        <th>Nagroda</th>
+        <th>Stan</th>
+        <th>Data utworzenia</th>
+    </tr>
+    {% for contract in contract_list %}
+    <tr>
+        <td>{{contract.title}}</td>
+        <td>{{contract.realm}}</td>
+        <td>{{contract.town}}</td>
+        <td>{{contract.monster}}</td>
+        <td>{{contract.currency}}</td>
+        <td>{{contract.reward}}</td>
+        <td>{{contract.state}}</td>
+        <td>{{contract.time_created}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

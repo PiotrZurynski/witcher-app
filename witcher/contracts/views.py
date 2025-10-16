@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Contract
+from django.views.generic import ListView
 from django.views.generic.edit import CreateView
 from .forms import ContractCreateForm
 from django.urls import reverse_lazy
@@ -25,8 +26,12 @@ def login_view(request):
         else:
             return HttpResponse("Złe dane")
     return render(request, "contracts/login.html", context)
+
 class ContractCreate(CreateView):
     model=Contract
     template_name='contracts/contract_create_form.html'
     form_class=ContractCreateForm
     success_url=reverse_lazy('home')
+
+class ContractList(ListView):
+    model=Contract
