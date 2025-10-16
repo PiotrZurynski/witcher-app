@@ -3,21 +3,23 @@
 {% block title %}
 Home Zlecenia
 {% endblock %}
+{}
 {% block page_css %}
 <link rel="stylesheet" href="{% static 'contracts/css/home.css' %}">
 {% endblock %}
 
 {% block content %}
-    {% if user.is_authenticated %}
-        <h1>Witaj {{name}} jestem wiedzmin Geralt</h1>
-        <p>Tu w przyszlosci bedziesz mogl zlozyc zlecenie</p>
-        <a href="{% url 'logout' %}">Wyloguj</a>
-    {% else %}
-        <h1>Witaj nieznajomy - jestem wiedzmin Geralt</h1>
-        <p>Zaloguj sie aby utworzyc zlecenie</p>
-        <a href="{% url 'login' %}">Zaloguj</a>
-        
-    {% endif %}
-    <img src="{% static 'contracts/images/mainpicture.png' %}" alt="Body main">
-
+<div class="homediv">
+    <div class="content">
+        {% if user.is_authenticated %}
+            <h1>Witaj {{name}} jestem wiedzmin Geralt</h1>
+            <p>Tu w przyszlosci bedziesz mogl zlozyc zlecenie</p>
+            <a href="{% url 'logout' %}">Wyloguj</a>
+        {% else %}
+            <h1>Witaj nieznajomy - jestem wiedzmin Geralt</h1>
+            <p>Zaloguj sie aby utworzyc zlecenie</p>
+            <a href="{% url 'login' %}">Zaloguj</a>
+        {% endif %}
+    </div>
+</div>
 {% endblock %}

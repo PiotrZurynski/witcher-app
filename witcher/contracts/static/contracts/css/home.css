@@ -2,3 +2,28 @@ h1{
     color:#b8b8b7;
     
 }
+
+.homediv{
+    position:relative;
+    background-image:url("/static/contracts/images/mainpicture.png");
+    background-size:contain;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-position: top center;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    min-height:950px;
+    margin:0;
+    padding:0;
+    overflow:hidden;
+    
+}
+.content{
+    position:relative;
+    color:#b8b8b7;
+    z-index: 2;
+    max-width: 800px;
+    text-align: center;
+
+}
