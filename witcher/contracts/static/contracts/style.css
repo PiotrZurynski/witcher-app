@@ -8,25 +8,54 @@ nav{
     background-color: black;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+
+
+    
+    
+    
     
 }
 a{
     text-decoration: none;
+    font-weight: 600;
 }
 nav img{
     height:40px;
-    margin-top:10px;
-    margin-left:10px;
+    
+    margin-left:20px;
 }
 .taskbar ul{
     display:flex;
-    justify-content: space-around;
-    width:500px;
+    justify-content:space-around;
+    width:400px;
 }
 #task{
     color:seashell;
     font-size:20px;
     font-family: Helvetica;
     opacity:0.9;
+}
+.inout{
+    margin-left:auto;
+    margin-right:20px;
+}
+.inout ul{
+    display: flex;
+    
+    justify-content: space-between;
+}
+.inout ul li{
+    margin-left:30px;
+}
+#in{
+    font-size: 20px;
+}
+footer{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    color:seashell;
+    margin-left:20px;
+    opacity:0.9
 }
