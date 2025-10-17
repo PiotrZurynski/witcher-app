@@ -23,7 +23,13 @@ h1{
     position:relative;
     color:#b8b8b7;
     z-index: 2;
+    width:100%;
     max-width: 800px;
     text-align: center;
+
+}
+.content a{
+    display:inline-block;
+    text-decoration: none;
 
 }

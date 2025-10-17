@@ -4,34 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        {% block title %}Zlecenia Wiedźmińskie{% endblock %}
-    </title>
+    <title>{% block title %}Zlecenia Wiedźmińskie{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'contracts/css/style.css' %}">
-    {% block page_css %}
-    {% endblock %}
+    {% block page_css %}{% endblock %}
+    <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel="stylesheet">
 </head>
-<body>
-    <nav>
-        <div class="logo">
-            <a href="{% url 'home' %}">
+<body {% if user.is_authenticated %}class="user-authenticated" {% endif %}>
+    <header class="header">
+    
+            <a class="logo" href="{% url 'home' %}">
             <img src="{% static 'contracts/images/logo.png' %}" alt="logo">
             </a>
-        </div>
-        <div class="taskbar">
-            <ul>
-                <li><a id="task" href="{% url 'contractlist' %}">Lista Kontraktow</a></li>
-                <li><a id="task" href="{% url 'contractcreate' %}">Dodaj Zlecenie</a></li>
-                
-            </ul>
-        </div>
-        <div class="inout">
-            <ul>
-               <li><a id="in" href="{% url 'login' %}">Zaloguj sie</a></li>
-               <li><a id="in" href="{% url 'signup' %}">Zarejestruj sie</a></li>
-            </ul>
-        </div>
-    </nav>
+            <input type="checkbox" id="check">
+            <label for="check" class="icons">
+                <i class='bxr bx-menu' id="menu-icon"></i>
+                <i class='bx bx-x' id="close-icon"></i>
+            </label>
+            <nav class="navbar">
+                <a href="{% url 'home' %}" style="--i:0;">Home</a>
+                <a href="{% url 'contractlist' %} " style="--i:1;">Lista Kontraktow</a>
+                <a href="{% url 'contractcreate' % }" style="--i:2;">Dodaj Zlecenie</a>
+            
+        
+            
+                {% if user.is_authenticated %}
+                    <a href="{% url 'logout' %}" style="--i:3;">Wyloguj</a>
+                {% else %}
+                    <a id="in" href="{% url 'login' %}" style="--i:3;">Zaloguj sie</a>
+                    <a id="in" href="{% url 'signup' %}" style="--i:4;">Zarejestruj sie</a>
+                {% endif %}
+            
+            </nav>
+        </header>
     {% block content %}
     {% endblock %}
 
