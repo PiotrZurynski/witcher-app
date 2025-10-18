@@ -11,8 +11,10 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 # Create your views here.
 def home(request):
-    realms=Realm.objects.all()
-    context={'realms':realms,"name": request.user}
+    realms=['Temeria','Redania','Skellige','Nilfgaard']
+    realm_id=Realm.objects.filter(name__in=realms)
+
+    context={'realms':realm_id,"name": request.user}
     return render(request,"contracts/home.html",context)
 
 def login_view(request):

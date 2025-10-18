@@ -33,7 +33,7 @@ Home Zlecenia
     <h2>Krainy w których działa</h2>
     <div class="container">
         {% for realm in realms %}
-        <div class="item">
+        <div class="item" style="--bg-image: url('/static/contracts/images/{{realm.name|lower}}_flag.png');">
             <h3>{{realm.name}}</h3>
             <p>{{realm.description}}</p>
         </div>
