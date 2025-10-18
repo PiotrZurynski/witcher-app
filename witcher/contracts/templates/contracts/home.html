@@ -28,4 +28,17 @@ Home Zlecenia
         {% endif %}
     </div>
 </div>
+
+<div class="realm">
+    <h2>Krainy w których działa</h2>
+    <div class="container">
+        {% for realm in realms %}
+        <div class="item">
+            <h3>{{realm.name}}</h3>
+            <p>{{realm.description}}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
 {% endblock %}

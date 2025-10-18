@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Contract
+from .models import Contract, Realm
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView
 from .forms import ContractCreateForm
@@ -11,7 +11,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 # Create your views here.
 def home(request):
-    context={"name": request.user}
+    realms=Realm.objects.all()
+    context={'realms':realms,"name": request.user}
     return render(request,"contracts/home.html",context)
 
 def login_view(request):
