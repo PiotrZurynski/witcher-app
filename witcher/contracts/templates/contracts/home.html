@@ -9,16 +9,22 @@ Home Zlecenia
 {% endblock %}
 
 {% block content %}
-<div class="homediv">
-    <div class="content">
+<div class="homediv"> <!--herosec-->
+    <div class="content"> <!--herocontet-->
         {% if user.is_authenticated %}
             <h1>Witaj {{name}} jestem wiedzmin Geralt</h1>
-            <p>Tu w przyszlosci bedziesz mogl zlozyc zlecenie</p>
-            <a href="{% url 'logout' %}">Wyloguj</a>
+            <div class="buttons"> <!--herobuttons-->
+                <a href="{% url 'contractlist' %}" class="btn btn-crimson">Przeglądaj Zlecenia</a>
+                <a href="{% url 'contractcreate' %}" class="btn btn-dark">Złóż zlecenie</a>
+
+            </div>
         {% else %}
             <h1>Witaj nieznajomy - jestem wiedzmin Geralt</h1>
-            <p>Zaloguj sie aby utworzyc zlecenie</p>
-            <a href="{% url 'login' %}">Zaloguj</a>
+            <div class="buttons">
+                <a href="{% url 'contractlist' %}" class="btn btn-crimson">Przeglądaj Zlecenia</a>
+                <a href="{% url 'login' %}" class="btn btn-dark">Zaloguj</a>
+            </div>
+        
         {% endif %}
     </div>
 </div>
