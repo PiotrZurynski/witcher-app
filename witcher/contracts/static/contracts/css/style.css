@@ -65,6 +65,25 @@ body{
     right:5%;
 }
 
+footer{
+    background-color: black;
+    color:#b8b8b7;
+    text-align: center;
+    width:100%;
+    border-top:1px solid hsl(0 0% 20%);
+    padding:2rem 10%;
+    position:fixed;
+    bottom:0;
+    left:0;
+    
+
+
+}
+footer p{
+    margin:0;
+    font-weight:400;
+    font-size:1.2rem;
+}
 @media (max-width:1770px){
     body:not(.user-authenticated) .icons{
         display: inline-flex;
@@ -107,6 +126,10 @@ body{
         opacity: 1;
         transition-delay: calc(.10s * var(--i));
     }
+    footer{
+        padding :1.8rem 5%;
+    }
+   
 }
 @media (max-width:1394px){
     body.user-authenticated .icons{
@@ -149,6 +172,12 @@ body{
         transform: translateY(0);
         opacity: 1;
         transition-delay: calc(.10s * var(--i));
+    }
+    footer{
+        padding :1.5rem 5%;
+    }
+    footer p{
+        font-size:1.1rem;
     }
 }
 @media (max-width:992px){
@@ -195,5 +224,12 @@ body{
     #check:checked~.navbar a{
         transform: translateY(0);
         transition-delay: calc(.15s * var(--i));
+    }
+    footer{
+        padding :1.2rem 5%;
+        
+    }
+    footer p{
+        font-size:0.8rem;
     }
 }
