@@ -1,0 +1,116 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background-color: #0a0a0a;
+}
+.signup-container{
+    min-height:100vh;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0a0a0a;
+    padding:20px;
+}
+.signup{
+    background:#1a1919;
+    border:2px solid #b8b8b7;
+    border-radius:10px;
+    padding:40px;
+    width:100%;
+    max-width:600px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.4);
+}
+.logo{
+    text-align: center;
+    margin-bottom:30px;
+}
+.signup-logo{
+    max-width:400px;
+    height:auto;
+}
+.signup h1{
+    text-align: center;
+    color: #b8b8b7;
+    font-size:2rem;
+    margin-bottom:30px;
+}
+.signup form p{
+    margin-bottom:20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.signup form label{
+    display:block;
+    color:#b8b8b7;
+    font-size:1.4rem;
+    margin-bottom: 8px;
+    font-weight: 600;
+    text-align: center;
+}
+.signup form input[type="text"],.signup form input[type="password"]{
+    width: 80%;
+    max-width: 350px;
+    padding:12px 15px;
+    background-color: #0a0a0a;
+    border:2px solid #b8b8b7;
+    border-radius:5px;
+    color:#b8b8b7;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-sizing:border-box;
+}
+
+.signup form input:focus{
+    outline:none;
+    border-color:crimson;
+    box-shadow: 0 0 8px rgba(220,20,60,0.3);
+
+}
+.signup form input::placeholder{
+    color:#666;
+}
+.signup form .helptext{
+    display: block;
+    color:#888;
+    font-size:0.85rem;
+    margin-top:5px;
+    text-align:center;
+}
+.signup form .errorlist{
+    list-style: none;
+    color:crimson;
+    font-size:0.9rem;
+    margin-top:5px;
+    text-align:center;
+}
+form button{
+    margin:auto;
+    
+}
+
+.btn-signup{
+    display: flex;
+    justify-content: center;
+    width:40%;
+    padding:15px;
+    background-color:#800000;
+    color:#b8b8b7;
+    border:none;
+    border-radius:15px;
+    font-size:1.1rem;
+    font-weight: 600;
+    cursor:pointer;
+    transition: all 0.3s ease-in-out;
+    margin-top:10px;
+    
+}
+.btn-signup:hover{
+    background-color: rgb(177, 15, 48);
+    transform:translateY(-2px);
+    box-shadow:0 5px 15px rgba(220,20,60,0.4);
+}

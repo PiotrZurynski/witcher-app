@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rejestracja</title>
-    {% load staic %}
+    {% load static %}
     <link rel="stylesheet" href="{% static 'contracts/css/signup.css' %}">
 </head>
 <body>
@@ -14,7 +14,7 @@
                 <img src="{% static 'contracts/images/logo.png' %}" alt="Logo" class="signup-logo">
             </div>
             <h1>Rejestracja</h1>
-            <form method= "POST" action="{% url 'signup' %}">
+            <form method= "POST" class="signup" action="{% url 'signup' %}">
                 {% csrf_token %}
                 {{form.as_p}}
                 <button type="submit" class="btn-signup">Zarejestruj się</button>
