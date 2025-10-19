@@ -22,7 +22,7 @@ body{
     padding:40px;
     width:100%;
     max-width:600px;
-    box-shadow:0 8px 20px rgba(0,0,0,0.5);
+    box-shadow:0 8px 20px rgba(0,0,0,0.4);
 }
 .logo{
     text-align: center;
@@ -65,3 +65,38 @@ body{
     box-sizing:border-box;
 }
 
+.form-group input:focus{
+    outline:none;
+    border-color:crimson;
+    box-shadow: 0 0 8px rgba(220,20,60,0.3);
+
+}
+.form-group input::placeholder{
+    color:#666;
+}
+form button{
+    margin:auto;
+    
+}
+
+.btn-login{
+    display: flex;
+    justify-content: center;
+    width:40%;
+    padding:15px;
+    background-color:#400000;
+    color:#b8b8b7;
+    border:none;
+    border-radius:15px;
+    font-size:1.1rem;
+    font-weight: 600;
+    cursor:pointer;
+    transition: all 0.3s ease-in-out;
+    margin-top:10px;
+    text-shadow:2px 2px 4px rgba(0,0,0,0.8);
+}
+.btn-login:hover{
+    background-color: #800000;
+    transform:translateY(-2px);
+    box-shadow:0 5px 15px rgba(220,20,60,0.4);
+}
