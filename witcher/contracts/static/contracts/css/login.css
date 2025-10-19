@@ -16,7 +16,7 @@ body{
     padding:20px;
 }
 .login{
-    background:#1a1a1a;
+    background:#1a1919;
     border:2px solid #b8b8b7;
     border-radius:10px;
     padding:40px;
@@ -84,7 +84,7 @@ form button{
     justify-content: center;
     width:40%;
     padding:15px;
-    background-color:#400000;
+    background-color:#800000;
     color:#b8b8b7;
     border:none;
     border-radius:15px;
@@ -93,10 +93,32 @@ form button{
     cursor:pointer;
     transition: all 0.3s ease-in-out;
     margin-top:10px;
-    text-shadow:2px 2px 4px rgba(0,0,0,0.8);
+    
 }
 .btn-login:hover{
-    background-color: #800000;
+    background-color: rgb(177, 15, 48);
     transform:translateY(-2px);
     box-shadow:0 5px 15px rgba(220,20,60,0.4);
+}
+.signup{
+    text-align: center;
+    margin-top:30px;
+    padding-top:25px;
+    border-top:1px solid #333;
+}
+.signup p{
+    color:#b8b8b7;
+    margin-bottom:10px;
+    font-size:0.95rem;
+}
+.signup a{
+    color:rgb(177, 15, 48);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+.signup a:hover{
+    color:crimson;
+    text-decoration: underline;
 }
