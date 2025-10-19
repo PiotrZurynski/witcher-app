@@ -1,6 +1,25 @@
-<h1>Wyloguj</h1>
-<form class="signup" method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Signup"/>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rejestracja</title>
+    {% load staic %}
+    <link rel="stylesheet" href="{% static 'contracts/css/signup.css' %}">
+</head>
+<body>
+    <div class="signup-container">
+        <div class="signup">
+            <div class="logo">
+                <img src="{% static 'contracts/images/logo.png' %}" alt="Logo" class="signup-logo">
+            </div>
+            <h1>Rejestracja</h1>
+            <form method= "POST" action="{% url 'signup' %}">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button type="submit" class="btn-signup">Zarejestruj się</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
