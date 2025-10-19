@@ -14,11 +14,19 @@
                 <img src="{% static 'contracts/images/logo.png' %}" alt="Logo" class="signup-logo">
             </div>
             <h1>Rejestracja</h1>
-            <form method= "POST"  action="{% url 'signup' %}" autocomplete="off">
+            <form method= "POST"  action="{% url 'signup' %}">
                 {% csrf_token %}
+                {{form.non_field_errors}}
                 {{form.as_p}}
                 <button type="submit" class="btn-signup">Zarejestruj się</button>
             </form>
+            {% if messages %}
+                <ul class="messages">
+                    {% for m in messages %}
+                        <li class="{{m.tags}}">{{m}}</li>
+                    {% endfor %}
+                </ul>
+               {% endif %} 
         </div>
     </div>
 </body>

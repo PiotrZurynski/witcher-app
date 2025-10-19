@@ -1,0 +1,28 @@
+{% extends "./base.html" %}
+{% block title %}Mój profil{% endblock %}
+{% block content %}
+<h1>Moje kontrakty</h1>
+<p><a href="{% url 'contractcreate' %}">+ Dodaj kontrakt</a></p>
+
+<table>
+  <tr>
+    <th>Tytuł</th>
+    
+    <th>Utworzono</th>
+    <th>Akcje</th>
+  </tr>
+  {% for c in contracts %}
+  <tr>
+    <td>{{ c.title }}</td>
+    
+    <td>{{ c.time_created|date:"Y-m-d H:i" }}</td>
+    <td>
+      <a href="{% url 'contractupdate' c.pk %}">Edytuj</a> |
+      <a href="{% url 'contractdelete' c.pk %}">Usuń</a>
+    </td>
+  </tr>
+  {% empty %}
+  <tr><td colspan="4">Brak kontraktów.</td></tr>
+  {% endfor %}
+</table>
+{% endblock %}

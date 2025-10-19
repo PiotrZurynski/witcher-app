@@ -11,6 +11,7 @@
         <th>Waluta</th>
         <th>Nagroda</th>
         <th>Stan</th>
+        <th>Właściciel Kontraktu</th>
         <th>Data utworzenia</th>
     </tr>
     {% for contract in contract_list %}
@@ -22,7 +23,10 @@
         <td>{{contract.currency}}</td>
         <td>{{contract.reward}}</td>
         <td>{{contract.state}}</td>
-        <td>{{contract.time_created}}</td>
+        <td>{{contract.owner.username}}</td>
+        <td>{{contract.time_created|date:"Y-m-d H:i"}}</td>
+       
+        
     </tr>
     {% endfor %}
 </table>

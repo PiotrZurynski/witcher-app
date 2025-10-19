@@ -25,10 +25,12 @@
                 <a href="{% url 'contractlist' %}" style="--i:1;">Lista Kontraktow</a>
                 <a href="{% url 'contractcreate' %}" style="--i:2;">Dodaj Zlecenie</a>
                 
+                
             
         
             
                 {% if user.is_authenticated %}
+                    <a href="{% url 'profile' %}" style="--i:2;">Profil</a>
                     <a href="{% url 'logout' %}" style="--i:3;">Wyloguj</a>
                 {% else %}
                     <a id="in" href="{% url 'login' %}" style="--i:3;">Zaloguj sie</a>

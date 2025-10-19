@@ -1,5 +1,6 @@
 from django.db import models
-
+from django.conf import settings
+from django.urls import reverse
 # Create your models here.
 class Realm(models.Model):
     name=models.CharField(max_length=100,unique=True)
@@ -66,6 +67,11 @@ class Contract(models.Model):
     state=models.CharField(max_length=3,choices=STATE_CHOICES,default="OPN")
 
     time_created=models.DateTimeField(auto_now_add=True)
+
+    owner=models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE, related_name="contracts")
+    
+    def get_absolute_url(self):
+        return reverse("profile")
 
 
     class Meta:
