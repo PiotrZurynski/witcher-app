@@ -5,10 +5,8 @@ from django.views.generic import ListView, UpdateView, DeleteView
 from django.views.generic.edit import CreateView
 from .forms import ContractCreateForm
 from django.urls import reverse_lazy
-from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 # Create your views here.
 def home(request):
