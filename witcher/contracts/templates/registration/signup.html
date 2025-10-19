@@ -14,7 +14,7 @@
                 <img src="{% static 'contracts/images/logo.png' %}" alt="Logo" class="signup-logo">
             </div>
             <h1>Rejestracja</h1>
-            <form method= "POST" class="signup" action="{% url 'signup' %}">
+            <form method= "POST"  action="{% url 'signup' %}" autocomplete="off">
                 {% csrf_token %}
                 {{form.as_p}}
                 <button type="submit" class="btn-signup">Zarejestruj się</button>
