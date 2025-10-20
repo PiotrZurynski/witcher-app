@@ -51,6 +51,19 @@ class OwnerRequiredMixin(UserPassesTestMixin):
 class ContractList(ListView):
     model=Contract
 
+    def get_queryset(self):
+        queryset=super().get_queryset()
+        sort=self.request.GET.get('sort','newest')
+
+        if sort=='newest':
+            queryset=queryset.order_by('-time_created')
+        elif sort=='reward':
+            queryset=queryset.order_by('-reward')
+        elif sort=='realm':
+            queryset =queryset.order_by('realm__name')
+        return queryset
+
+
 class ContractCreate(LoginRequiredMixin,CreateView):
     model=Contract
     template_name='contracts/contract_create_form.html'

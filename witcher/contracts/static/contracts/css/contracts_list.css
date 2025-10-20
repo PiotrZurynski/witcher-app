@@ -1,0 +1,129 @@
+.contractslist{
+    max-width:1400px;
+    margin:0 auto;
+    padding:120px 20px 40px;
+    min-height:80vh;
+}
+.listhead{
+    text-align: center;
+    margin-bottom: 40px;
+}
+.listhead h1{
+    color:#e8d4b0;
+    font-size:3rem;
+    margin:0;
+}
+.subtitle{
+    color: #888888;
+    font-size: 1.1rem;
+}
+.filtersbar{
+    background:#1a140f;
+    padding:15px 25px;
+    border-radius:10px;
+    margin-bottom:30px;
+    border:2px solid #8b7355;
+    display:flex;
+    align-items: center;
+    gap:15px;
+    max-width:350px;
+}
+.filterlabel{
+    color:#e8d4b0;
+    font-weight: 600;
+}
+.filterselect{
+    background:#2a2419;
+    color:#e8d4b0;
+    border:1px solid #8b7355;
+    padding:8px 15px;
+    border-radius:5px;
+    font-size:0.95rem;
+    cursor:pointer;
+}
+.table{
+    background: #2a2419;
+    border:3px solid #8b7355;
+    border-radius:15px;
+    overflow: hidden;
+}
+.tablecontract{
+    width:100%;
+    border-collapse: collapse;
+}
+.tablecontract thead{
+    background-color: #1a140f;
+}
+.tablecontract th{
+    color:#e8d4b0;
+    padding:18px 15px;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    border-bottom:2px solid #8b7355;
+    letter-spacing: 0.5px;
+}
+.tablecontract tbody tr{
+    background-color: #1f1a13;
+    border-bottom: 1px solid #4a3a2a;
+}
+.tablecontract td{
+    color:#e8d4b0;
+    padding:15px 10px;
+    text-align: center;
+    font-size:0.95rem;
+    font-weight: 600;
+}
+
+@media (max-width:1200px){
+    .contractslist{
+        padding:100px 15px 30px;
+    }
+    .table{
+        overflow-x: auto;
+    }
+    .tablecontract{
+        min-width:1000px;
+    }
+}
+@media (max-width: 768px) {
+    .listhead h1 {
+        font-size: 2rem;
+    }
+    
+    .tablecontract th,
+    .tablecontract td {
+        padding: 10px 8px;
+        font-size: 0.85rem;
+    }
+    
+    .tablecontract {
+        min-width: 900px;
+    }
+    
+    .filtersbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+    
+    .filterselect {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .listhead h1 {
+        font-size: 1.5rem;
+    }
+    
+    .subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .tablecontract th,
+    .tablecontract td {
+        padding: 8px 5px;
+        font-size: 0.75rem;
+    }
+}

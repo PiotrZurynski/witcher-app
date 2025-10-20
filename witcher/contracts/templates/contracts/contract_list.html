@@ -1,34 +1,69 @@
 {% extends "./base.html" %}
+{% load static %}
+{% block title %}Lista Kontraktów{% endblock %}
+{% block page_css %}
+<link rel="stylesheet" href="{% static 'contracts/css/contracts_list.css' %}">
+{% endblock %}
 
 {% block content %}
-<h1>Lista Zleceń</h1>
-<table>
-    <tr>
-        <th>Tytuł</th>
-        <th>Kraina</th>
-        <th>Miejscowość</th>
-        <th>Potwór</th>
-        <th>Waluta</th>
-        <th>Nagroda</th>
-        <th>Stan</th>
-        <th>Właściciel Kontraktu</th>
-        <th>Data utworzenia</th>
-    </tr>
-    {% for contract in contract_list %}
-    <tr>
-        <td>{{contract.title}}</td>
-        <td>{{contract.realm}}</td>
-        <td>{{contract.town}}</td>
-        <td>{{contract.monster}}</td>
-        <td>{{contract.currency}}</td>
-        <td>{{contract.reward}}</td>
-        <td>{{contract.state}}</td>
-        <td>{{contract.owner.username}}</td>
-        <td>{{contract.time_created|date:"Y-m-d H:i"}}</td>
-       
-        
-    </tr>
-    {% endfor %}
-</table>
-
+<div class="contractslist">
+    <div class="listhead">
+        <h1>Tablica Zleceń</h1>
+        <p class="subtitle">Aktualnie zlecone kontrakty</p>
+    </div>
+<form method="GET" action="">
+    <div class="filtersbar">
+        <span class="filterlabel">Sortuj według:</span>
+        <select class="filterselect" name="sort" onchange="this.form.submit()">
+            <option value="newest" {% if request.GET.sort == 'newest' or not request.GET.sort %}selected{% endif %}>Najnowsze</option>
+            <option value="reward" {% if request.GET.sort == 'reward' %}selected{% endif %}>Najwyższa nagroda</option>
+            <option value="realm" {% if request.GET.sort == 'realm' %}selected{% endif %}>Kraina</option>
+        </select>
+    </div>
+</form>
+    <div class="table">
+        <table class="tablecontract">
+            <thead>
+                <tr>
+                    <th>Tytył</th>
+                    <th>Kraina</th>
+                    <th>Miejscowość</th>
+                    <th>Potwór</th>
+                    <th>Nagroda</th>
+                    <th>Waluta</th>
+                    <th>Zleceniodawca</th>
+                    <th>Data</th>
+                    <th>Stan</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for contract in contract_list %}
+                <tr class="contractrow">
+                    <td class="title-col">
+                        <span class="contacttitle">
+                            {% if contract.title|length > 25 %}
+                                {{contract.title|slice:":25"}}...
+                            {% else %}
+                                {{contract.title}}
+                            {% endif %}
+                        </span>
+                    </td>
+                    <td class="realm-col">{{contract.realm}}</td>
+                    <td class="town-col">{{contract.town}}</td>
+                    <td class="monster-col">{{contract.monster.name}}</td>
+                    <td class="reward-col">{{contract.reward}}</td>
+                    <td class="currency-col">{{contract.get_currency_display}}</td>
+                    <td class="owner-col">{{contract.owner.username}}</td>
+                    <td class="time-col">{{contract.time_created|date:"Y-m-d H:i"}}</td>
+                    <td class="state-col">{{contract.get_state_display}}</td>
+                </tr>
+                {% empty %}
+        <tr>
+          <td colspan="9" class="empty">Nie masz jeszcze żadnych kontraktów.</td>
+        </tr>
+        {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
 {% endblock %}
