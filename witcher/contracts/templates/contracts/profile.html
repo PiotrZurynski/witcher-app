@@ -1,28 +1,48 @@
 {% extends "./base.html" %}
+{% load static %}
 {% block title %}Mój profil{% endblock %}
-{% block content %}
-<h1>Moje kontrakty</h1>
-<p><a href="{% url 'contractcreate' %}">+ Dodaj kontrakt</a></p>
 
-<table>
-  <tr>
-    <th>Tytuł</th>
-    
-    <th>Utworzono</th>
-    <th>Akcje</th>
-  </tr>
-  {% for c in contracts %}
-  <tr>
-    <td>{{ c.title }}</td>
-    
-    <td>{{ c.time_created|date:"Y-m-d H:i" }}</td>
-    <td>
-      <a href="{% url 'contractupdate' c.pk %}">Edytuj</a> |
-      <a href="{% url 'contractdelete' c.pk %}">Usuń</a>
-    </td>
-  </tr>
-  {% empty %}
-  <tr><td colspan="4">Brak kontraktów.</td></tr>
-  {% endfor %}
-</table>
+
+{% block page_css %}
+<link rel="stylesheet" href="{% static 'contracts/css/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="profile">
+  <div class="userinfo">
+    <h2>Profil: <span class="username">{{user.username}}</span></h2>
+  </div>
+  <div class="profil-head">
+    <h1>Moje Kontrakty</h1>
+  </div>
+  <div class="table">
+    <table class="table-contract">
+      <thead>
+        <tr>
+          <th>Tytuł</th>
+          <th>Utworzono</th>
+          <th>Akcje</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for c in contracts %}
+        <tr>
+          <td class="title-col">{{c.title}}</td>
+          <td class="date-col">{{c.time_created|date:"Y-m-d H:i"}}</td>
+          <td class="actions-col">
+            <a href="{% url 'contractupdate' c.pk %}" class="btn-act btn-edit">Edytuj</a>
+            <a href="{% url 'contractdelete' c.pk %}" class="btn-act btn-delete">Usuń</a>
+          </td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="3" class="empty">Nie masz jeszcze żadnych kontraktów.</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+  </div>
+</div>
+
 {% endblock %}
