@@ -16,3 +16,88 @@
     font-size: 1.5rem;
     margin:0;
 }
+.userinfo .username{
+    color:crimson;
+    font-weight: 600;
+}
+.profilehead{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap:wrap;
+    gap:20px;
+}
+.profilehead{
+    color:#b8b8b7;
+    font-size:2.5rem;
+    margin:0;
+}
+.table{
+    width:100%;
+    border-collapse: collapse;
+}
+.tablecontract thead{
+    background-color: #0a0a0a;
+}
+.tablecontract th{
+    color:#b8b8b7;
+    padding:20px;
+    text-align: left;
+    font-size:1.1rem;
+    font-weight: 600;
+    border-bottom:2px solid #b8b8b7;
+}
+.tablecontract tbody tr{
+    border-bottom:1px solid #333333;
+    transition: background-color 0.3s ease;
+}
+
+.title-col{
+    font-weight: 600;
+    font-size: 1.2rem;
+
+}
+.date-col{
+    color:#888888;
+    font-size:0.95rem;
+}
+.actions-col{
+    text-align:right;
+}
+.btn-act{
+    padding:8px 16px;
+    text-decoration: none;
+    border-radius:5px;
+    font-size:0.9rem;
+    font-weight:bold;
+    transition: all 0.3s ease;
+    display:inline-block;
+    margin-left:8px;
+}
+.btn-edit{
+    background-color: #1a1a1a;
+    color:#b8b8b7;
+    border:2px solid #b8b8b7;
+}
+.btn-edit:hover{
+    background-color: rgb(78,99,108);
+    transform:translateY(-1px);
+    box-shadow:0 5px 15px rgba(234,234,234);
+}
+.btn-delete{
+    background-color: crimson;
+    color:white;
+    border: 2px solid crimson;
+}
+.btn-delete:hover{
+    background-color: rgb(104, 24, 40);
+    transform:translateY(-2px);
+    box-shadow:0 5px 15px rgba(220,20,60,0.4);
+}
+.empty{
+    text-align: center;
+    padding:40px 20px;
+    color:#888888;
+    font-size:1.1rem;
+    
+}
