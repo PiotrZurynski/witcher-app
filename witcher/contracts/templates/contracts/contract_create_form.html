@@ -6,11 +6,41 @@ Dodaj Zlecenie
 {% endblock %}
 
 {% block content %}
-<h1>Dodaj zlecenie</h1>
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Zapisz</button>
-</form>
-<p>Tu w przyszlosci bedziesz mogl zlozyc zlecenie</p>
+<div class="formcontainer">
+    <div class="formhead">
+        <h1>Nowe Zlecenie</h1>
+        <p class="subtitle">Wypełnij szczegóły kontraktu na potwora</p>
+    </div>
+    <div class="formbox">
+        <form method="POST">
+            {% csrf_token %}
+            {% for item in form %}
+                <div class="formgroup">
+                    <label for="{{item.id_for_label}}">
+                        {{item.label}}
+                        {% if item.field.required %}
+                            <span class="required">*</span>
+                        {% endif %}
+                    </label>
+                    {{ item }}
+                    {% if item.help_text %}
+                        <small class="helptext">{{item.help_text}}</small>
+                    {% endif %}
+                    {% if item.errors %}
+                        <ul class="errorlist">
+                            {% for error in item.errors %}
+                            <li>{{error}}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
+                {% endfor %}
+                <div class="formaction">
+                    <button type="submit" class="btn-submit">Zapisz zlecenie</button>
+                    <a href="{% url 'profile' %}" class="btn-cancel">Anuluj</a>
+                </div>
+        </form>
+    </div>
+
+</div>
 {% endblock %}
