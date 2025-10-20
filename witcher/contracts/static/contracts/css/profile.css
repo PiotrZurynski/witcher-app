@@ -1,8 +1,9 @@
 .profile{
-    max-width: 1200px;
+    max-width: 700px;
     margin:0 auto;
     padding:120px 20px;
     min-height:80vh;
+    
 }
 .userinfo{
     margin-bottom:30px;
@@ -10,6 +11,7 @@
     background:#1a1a1a;
     border:2px solid #b8b8b7;
     border-radius:10px;
+    max-width: 200px;
 }
 .userinfo h2{
     color:#b8b8b7;
@@ -20,38 +22,62 @@
     color:crimson;
     font-weight: 600;
 }
-.profilehead{
+.profilhead{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    flex-wrap:wrap;
-    gap:20px;
+   
+    
 }
-.profilehead{
-    color:#b8b8b7;
+.profilhead h1{
+    color:#e8d4b0;
     font-size:2.5rem;
-    margin:0;
+    margin:0 0 20px 0;
 }
 .table{
+    max-width: 1000px;
+    margin:0 auto;
+    background: #2a2419;
+    border:3px solid #8b7355;
+    border-radius:15px;
+    overflow: hidden;
+    margin-top:2px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.6);
+}
+.tablecontract{
     width:100%;
     border-collapse: collapse;
 }
 .tablecontract thead{
-    background-color: #0a0a0a;
+    background-color: #1a140f;
 }
 .tablecontract th{
-    color:#b8b8b7;
-    padding:20px;
+    color:#e8d4b0;
+    padding:20px 25px;
     text-align: left;
     font-size:1.1rem;
     font-weight: 600;
-    border-bottom:2px solid #b8b8b7;
+    border-bottom:2px solid #8b7355;
+    letter-spacing: 1px;
+    text-align: center;
 }
 .tablecontract tbody tr{
-    border-bottom:1px solid #333333;
+    background-color: #1f1a13;
+    border-bottom:1px solid #4a3a2a;
     transition: background-color 0.3s ease;
 }
-
+.tablecontract tbody td{
+    padding-left:5px;
+    padding-right:5px;
+}
+.tablecontract td{
+    color:#e8d4b0;
+    padding-bottom: 10px;
+    padding-top:10px;
+    padding-left:5px;
+    padding-right:5px;
+    text-align: center;   
+}
 .title-col{
     font-weight: 600;
     font-size: 1.2rem;
@@ -99,5 +125,72 @@
     padding:40px 20px;
     color:#888888;
     font-size:1.1rem;
+}
+
+.btn-add{
+    
+    margin-top:30px;
+    background-color: #0a0909;
+    color:#b8b8b7;
+    padding:12px 30px;
+    text-decoration:none;
+    border-radius:5px;
+    font-weight:600;
+    font-size:1rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.btn-add:hover{
+    /*#0a0909 */
+    background-color: #171616;
+    transform:translateY(2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+
+}
+@media (max-width: 730px){
+    .profilhead{
+        font-size: 2rem;
+    }
+    .table{
+        overflow-x: auto;
+    }
+    .tablecontract{
+        min-width: 600px;
+    }
+    .tablecontract th,.tablecontract td{
+        padding:12px 15px;
+        font-size: 0.9rem;
+    }
+    .btn-act{
+        padding:6px 12px;
+        font-size:0.85rem;
+    }
+    .title-col{
+        max-width: 250px;
+    }
+}
+@media (max-width: 670px){
+    .profilhead{
+        font-size: 1.9rem;
+    }
+    .table{
+        overflow-x: auto;
+    }
+    .tablecontract{
+        min-width: 500px;
+    }
+    .tablecontract th,.tablecontract td{
+        padding:15px 15px;
+        font-size: 0.8rem;
+        
+    }
+    .btn-act{
+        padding:6px 12px;
+        font-size:0.85rem;
+    }
+    .title-col{
+        max-width: 200px;
+    }
     
 }

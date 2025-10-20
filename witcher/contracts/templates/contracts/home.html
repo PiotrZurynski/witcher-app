@@ -19,7 +19,7 @@ Home Zlecenia
 
             </div>
         {% else %}
-            <h1>Witaj nieznajomy - jestem wiedzmin Geralt</h1>
+            <h1>Witaj nieznajomy - jestem Wiedzmin Geralt</h1>
             <div class="buttons">
                 <a href="{% url 'contractlist' %}" class="btn btn-crimson">Przeglądaj Zlecenia</a>
                 <a href="{% url 'login' %}" class="btn btn-dark">Zaloguj</a>
@@ -30,7 +30,7 @@ Home Zlecenia
 </div>
 
 <div class="realm">
-    <h2>Krainy w których działa</h2>
+    <h2>Zaprzyjaźnione królestwa</h2>
     <div class="container">
         {% for realm in realms %}
         <div class="item" style="--bg-image: url('/static/contracts/images/{{realm.name|lower}}_flag.png');">

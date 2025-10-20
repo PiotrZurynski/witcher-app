@@ -120,7 +120,7 @@ footer p{
         transition: height 0.4s ease;
     }
     body:not(.user-authenticated) #check:checked~.navbar{
-        height:16rem;
+        height:18.5rem;
     }
     body:not(.user-authenticated) .navbar a{
         display: block;
@@ -141,7 +141,7 @@ footer p{
     }
    
 }
-@media (max-width:1394px){
+@media (max-width:1570px){
     body.user-authenticated .icons{
         display: inline-flex;
     }
@@ -167,7 +167,7 @@ footer p{
         transition: height 0.4s ease;
     }
     body.user-authenticated #check:checked~.navbar{
-        height:13rem;
+        height:16rem;
     }
     body.user-authenticated .navbar a{
         display: block;

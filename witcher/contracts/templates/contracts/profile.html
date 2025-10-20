@@ -27,7 +27,13 @@
       <tbody>
         {% for c in contracts %}
         <tr>
-          <td class="title-col">{{c.title}}</td>
+          <td class="title-col">
+            {% if c.title|length > 30 %}
+              {{c.title|slice:":30"}}...
+            {% else %}
+              {{c.title}}
+            {% endif %}
+          </td>
           <td class="date-col">{{c.time_created|date:"Y-m-d H:i"}}</td>
           <td class="actions-col">
             <a href="{% url 'contractupdate' c.pk %}" class="btn-act btn-edit">Edytuj</a>
@@ -41,8 +47,12 @@
         {% endfor %}
       </tbody>
     </table>
+    
 
   </div>
+  <div >
+      <a href="{% url 'contractcreate' %}" class="btn-add">+ Dodaj Zlecenie</a>
+    </div>
 </div>
 
 {% endblock %}
