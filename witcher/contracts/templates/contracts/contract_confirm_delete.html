@@ -1,0 +1,25 @@
+{% extends "./base.html" %}
+{% load static %}
+{% block title %}Usuń kontrakt{% endblock %}
+{% block page_css %}
+<link rel="stylesheet" href="{% static 'contracts/css/contract_confirm_delete.css' %}">
+{% endblock %}
+{% block content %}
+<div class="deletecontainer">
+    <div class="deletecard">
+        <div class="deleteheader">
+            <h1>Potwierdź usunięcie</h1>
+        </div> 
+        <div class="deletecontent">
+            <p class="warningtext">Czy na pewno chcesz usunąć ten kontrakt?</p>
+        </div>
+        <div class="deleteactions">
+            <form method="POST">
+                {% csrf_token %}
+                <button type="submit" class="btn-confirm-delete">Tak, usuń kontrakt</button>
+            </form>
+            <a href="{% url 'profile' %}" class="btn-cancel">Anuluj</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
