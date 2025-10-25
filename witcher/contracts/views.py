@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Contract, Realm
-from django.views.generic import ListView, UpdateView, DeleteView
+from django.views.generic import ListView, UpdateView, DeleteView, DetailView
 from django.views.generic.edit import CreateView
 from .forms import ContractCreateForm
 from django.urls import reverse_lazy
@@ -100,3 +100,7 @@ class ProfileView(LoginRequiredMixin,ListView):
 
 
     
+class ContractDetailView(DetailView):
+    model=Contract
+    template_name='contracts/contract_detail.html'
+    context_object_name='contract'

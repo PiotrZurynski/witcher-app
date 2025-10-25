@@ -40,6 +40,7 @@
                 {% for contract in contract_list %}
                 <tr class="contractrow">
                     <td class="title-col">
+                        <a href="{% url 'contractdetail' slug=contract.slug %}" class="contractlink">
                         <span class="contacttitle">
                             {% if contract.title|length > 25 %}
                                 {{contract.title|slice:":25"}}...
@@ -47,6 +48,7 @@
                                 {{contract.title}}
                             {% endif %}
                         </span>
+                    </a>
                     </td>
                     <td class="realm-col">{{contract.realm}}</td>
                     <td class="town-col">{{contract.town}}</td>

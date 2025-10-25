@@ -148,6 +148,13 @@
     box-shadow: 0 5px 15px rgba(0,0,0,0.5);
 
 }
+.contractlink{
+    color:#e8d4b0;
+    transition: color 0.3s ease;   
+}
+.contractlink:hover{
+    color:#8b7355;
+}
 @media (max-width: 730px){
     .profilhead{
         font-size: 2rem;

@@ -1,6 +1,6 @@
 from django.urls import path, include 
 from . import views
-from .views import ContractCreateForm
+from .views import ContractCreateForm, ContractDetailView
 
 
 
@@ -14,4 +14,5 @@ urlpatterns = [
     path("contracts/<int:pk>/delete/",views.ContractDelete.as_view(),name="contractdelete"),
     path('contracts/create/',views.ContractCreate.as_view(),name="contractcreate"),
     path('contract/list/', views.ContractList.as_view(),name="contractlist"),
+    path('contracts/<slug:slug>/',ContractDetailView.as_view(),name='contractdetail'),
 ]

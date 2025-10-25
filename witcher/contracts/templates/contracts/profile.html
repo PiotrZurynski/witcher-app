@@ -28,11 +28,13 @@
         {% for c in contracts %}
         <tr>
           <td class="title-col">
+            <a href="{% url 'contractdetail' slug=c.slug %}" class="contractlink">
             {% if c.title|length > 30 %}
               {{c.title|slice:":30"}}...
             {% else %}
               {{c.title}}
             {% endif %}
+          </a>
           </td>
           <td class="date-col">{{c.time_created|date:"Y-m-d H:i"}}</td>
           <td class="actions-col">

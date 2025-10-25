@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 from django.urls import reverse
+from django.utils.text import slugify 
 # Create your models here.
 class Realm(models.Model):
     name=models.CharField(max_length=100,unique=True)
@@ -65,13 +66,24 @@ class Contract(models.Model):
     currency=models.CharField(max_length=3,choices=CURRENCY_CHOICES,default="KRN")
     reward=models.IntegerField(default=0)
     state=models.CharField(max_length=3,choices=STATE_CHOICES,default="OPN")
-
+    slug=models.SlugField(max_length=200,unique=True,blank=True)
     time_created=models.DateTimeField(auto_now_add=True)
 
     owner=models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE, related_name="contracts")
     
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            base_slug = slugify(self.title)
+            slug = base_slug
+            counter = 1
+            while Contract.objects.filter(slug=slug).exists():
+                slug = f"{base_slug}-{counter}"
+                counter += 1
+            self.slug = slug
+        super().save(*args, **kwargs)
+    
     def get_absolute_url(self):
-        return reverse("profile")
+        return reverse("contractdetail", kwargs={"slug": self.slug})
 
 
     class Meta:

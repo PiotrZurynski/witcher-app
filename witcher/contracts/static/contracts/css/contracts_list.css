@@ -74,7 +74,13 @@
     font-size:0.95rem;
     font-weight: 600;
 }
-
+.contractlink{
+    color:#e8d4b0;
+    transition: color 0.3s ease;   
+}
+.contractlink:hover{
+    color:#8b7355;
+}
 @media (max-width:1200px){
     .contractslist{
         padding:100px 15px 30px;
