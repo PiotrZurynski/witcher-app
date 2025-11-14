@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'contracts',
     'rest_framework',
+    'rest_framework.authtoken',
 ]
 
 
@@ -113,7 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Warsaw'
 
 USE_I18N = True
 
