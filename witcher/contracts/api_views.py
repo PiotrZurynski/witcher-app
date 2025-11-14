@@ -8,7 +8,8 @@ from django.core.paginator import Paginator, EmptyPage
 from django.shortcuts import get_object_or_404
 from .models import Realm, Town, Monster, Contract
 from .serializers import RealmSerializer,TownSerializer,MonsterSerializer,ContractSerializer,ContractListSerializer
-
+from django.db.models import Count,Sum
+from django.utils import timezone
 User = get_user_model()
 
 @api_view(['GET', 'POST'])
@@ -186,3 +187,20 @@ def user_contracts(request):
     qs=(Contract.objects.select_related('realm','town','monster','owner').filter(owner=request.user).order_by('-time_created'))
     serializer=ContractListSerializer(qs, many=True)
     return Response(serializer.data)
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def contracts_stats_monthly(request):
+    year=int(request.query_params.get('year', timezone.now().year))
+    qs=(Contract.objects.filter(time_created__year=year).values('time_created__month').annotate(total=Count('id')).order_by('time_created__month'))
+    data=[{'month': r['time_created__month'], 'total': r['total']} for r in qs]
+    return Response({'year': year, 'items': data})
+
+@api_view(['GET'])
+@authentication_classes([TokenAuthentication])
+@permission_classes([IsAuthenticated])
+def user_contracts_summary(request):
+    qs=Contract.objects.filter(owner=request.user)
+    by_state=(qs.values('state').annotate(total=Count('id')).order_by('state'))
+    by_currency=(qs.values('currency').annotate(total_reward=Sum('reward')).order_by('currency'))
+    return Response({'counts_by_state': list(by_state),'sum_by_currency': list(by_currency),})

@@ -39,4 +39,7 @@ urlpatterns = [
     path("api/contracts/<int:pk>/delete/",api_views.contract_delete,name="api_contract_delete"),
     path("api/contracts/user/me/",api_views.user_contracts,name="api_user_contracts"),
 
+    #required
+    path("api/contracts/stats/monthly/",api_views.contracts_stats_monthly,name='api_contracts_stats_monthly'),
+    path("api/contracts/user/me/summary/",api_views.user_contracts_summary,name="api_user_contracts_summary"),
 ]
