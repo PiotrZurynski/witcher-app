@@ -32,7 +32,6 @@ class ContractSerializer(serializers.ModelSerializer):
         model = Contract
         fields = ['id',
             'title',
-            'slug',
             'description',
             'realm',
             'town',
@@ -56,7 +55,6 @@ class ContractListSerializer(serializers.ModelSerializer):
         model = Contract
         fields = ['id',
                   'title',
-                  'slug',
                   'realm_name',
                   'town_name',
                   'monster_name',
