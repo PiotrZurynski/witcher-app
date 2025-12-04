@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("",include("contracts.urls")),
     path('__debug__/',include('debug_toolbar.urls')),
+    path('api-auth/', include('rest_framework.urls')),
 ] + debug_toolbar_urls()
